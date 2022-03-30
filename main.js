@@ -25,11 +25,38 @@ keys.forEach(function (key) {
 	notes.push(document.getElementById(key));
 });
 
+// ============================================================
 // Write named functions that change the color of the keys below
+//    (We are creating thee functions to use as event handelers
+//    to put in our .addEventListener('click', handelers))
+// =============================================================
+const keyPlay = (event) => {         //Step1 click down to change color
+  event.target.style.backgroundColor = 'blue';
+}
 
-// Write a named function with event handler properties
+const keyReturn = (event) => {   //step 2 released click return color to defult
+  event.target.style.backgroundColor = '';
+};
 
-// Write a loop that runs the array elements through the function
+// ===============================================================
+//       Write a named function with event handler properties
+// ================================================================
+let eventAssignment = (note) => {     // step 3       
+  note.onmousedown = () => {         //step 4 
+    keyPlay(event);
+  }
+
+  note.onmouseup = ()=> {
+    keyReturn(event);
+ }
+
+}
+
+// ===============================================================
+//   Write a loop that runs the array elements through the function
+// ================================================================
+notes.forEach(eventAssignment);        //step 6
+
 
 // These variables store the buttons that progress the user through the lyrics
 let nextOne = document.getElementById("first-next-line");
