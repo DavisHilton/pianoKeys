@@ -55,7 +55,7 @@ let eventAssignment = (note) => {     // step 3
 // ===============================================================
 //   Write a loop that runs the array elements through the function
 // ================================================================
-notes.forEach(eventAssignment);        //step 6
+notes.forEach(eventAssignment);        //step 6/7
 
 
 // These variables store the buttons that progress the user through the lyrics
@@ -68,18 +68,66 @@ let startOver = document.getElementById("fourth-next-line");
 let lastLyric = document.getElementById("column-optional");
 
 // These statements are "hiding" all the progress buttons, but the first one
-nextTwo.hidden = true;
+nextTwo.hidden = true;      
 nextThree.hidden = true;
 startOver.hidden = true;
 
 // Write anonymous event handler property and function for the first progress button
 
+nextOne.onclick = () => {  //step 8
+  nextTwo.hidden = false;  // strep 9
+  nextOne.hidden = true;
+
+  
+  document.getElementById("letter-note-five").innerHTML = 'D' //step 10
+  document.getElementById("letter-note-six").innerHTML = 'C'
+};
+
+
 // Write anonymous event handler property and function for the second progress button
+
+nextTwo.onclick = () => {
+	//step 11
+	nextThree.hidden = false; //step 12
+	nextTwo.hidden = true;
+
+	document.getElementById("word-five").innerHTML = "DEAR"; //step 13
+  document.getElementById("word-six").innerHTML = "FRI-";
+  
+  lastLyric.style.display = "inline-block" //step 14
+  //step 15
+  document.getElementById("letter-note-three").innerHTML = 'G';
+  document.getElementById("letter-note-four").innerHTML = 'E';
+  document.getElementById("letter-note-five").innerHTML = 'C';
+  document.getElementById("letter-note-six").innerHTML = 'B';
+};
 
 // Write anonymous event handler property and function for the third progress button
 
-// This is the event handler property and function for the startOver button
-startOver.onclick = function () {
+nextThree.onclick = () => {   //step 16
+  startOver.hidden = false;   //step 17
+  nextThree.hidden = true
+  // step 18
+  document.getElementById("word-one").innerHTML = "HAP";
+  document.getElementById("word-two").innerHTML = "PY";
+  document.getElementById("word-three").innerHTML = "BIRTH";
+  document.getElementById("word-four").innerHTML = "DAY";
+  document.getElementById("word-five").innerHTML = "TO";
+  document.getElementById("word-six").innerHTML = "YOU";
+  
+  //step 19
+  document.getElementById("letter-note-one").innerHTML = "F";
+  document.getElementById("letter-note-two").innerHTML = "F";
+  document.getElementById("letter-note-three").innerHTML = "E";
+  document.getElementById("letter-note-four").innerHTML = "C";
+  document.getElementById("letter-note-five").innerHTML = "D";
+  document.getElementById("letter-note-six").innerHTML = "C";
+
+//step 20
+ lastLyric.style.display = "none";  
+};
+  //This is the event handler property and functifor the startOver Dhreeton
+startOver.onclick = function() {
 	nextOne.hidden = false;
 	startOver.hidden = true;
 	document.getElementById("word-one").innerHTML = "HAP-";
